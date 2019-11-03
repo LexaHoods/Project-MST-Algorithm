@@ -18,5 +18,34 @@
     <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Project-MST-Algorithm.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Graph.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Edge.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Kruskal.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Subset.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Graph.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Edge.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Kruskal.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Subset.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\ClassDiagram.cd" />
   </ItemGroup>
 </Project>

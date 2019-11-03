@@ -1,20 +1,89 @@
-// Project-MST-Algorithm.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
+//Project Minimum Spanning Tree
+//Axel Houdayer - IATIC4
+#include <iostream> 
+#include "Edge.h"
+#include "Graph.h"
+#include "Kruskal.h"
+#include <random>
+#include <time.h>
 
-#include <iostream>
 
+using namespace std;
+Graph generatorGraph(int v, float p) {
+	Graph g;
+	float r = 0; // random
+	srand(time(NULL));
+	for (int i = 0; i < v; i++) {
+		for (int j = i + 1; j < v; j++) {
+			r = (float)rand() / RAND_MAX;
+			if (r >=p) {
+				Edge e;
+				e.src = i;
+				e.dest = j;
+				e.weight = (int)rand() % v + 1;
+				g.listEdge.push_back(e);
+			}
+		}
+	}
+
+	g.E = g.listEdge.size();
+	g.V = v;
+	////print :
+	//for (unsigned int j = 0; j < g.listEdge.size(); j++) {
+	//	cout << g.listEdge[j].src << " -- " << g.listEdge[j].dest << "==" << g.listEdge[j].weight << endl;
+	//}
+
+	return g;
+
+}
 int main()
 {
-    std::cout << "Hello World!\n";
+	//
+	//int V = 4, E = 5;
+	Graph g;
+	//g.V = V;
+	//g.E = E;
+
+	//Edge e;
+
+	//// add edge 0-1 
+
+	//e.src = 0;
+	//e.dest = 1;
+	//e.weight = 10;
+	//g.Edge.push_back(e);
+
+
+	//// add edge 0-2 
+
+	//e.src = 0;
+	//e.dest = 2;
+	//e.weight = 6;
+	//g.Edge.push_back(e);
+
+	////add edge 0-3 
+	//e.src = 0;
+	//e.dest = 3;
+	//e.weight = 5;
+	//g.Edge.push_back(e);
+	////add edge 1-3 
+	//e.src = 1;
+	//e.dest = 3;
+	//e.weight = 15;
+	//g.Edge.push_back(e);
+	////add edge 2-3 
+	//e.src = 2;
+	//e.dest = 3;
+	//e.weight = 4;
+	//g.Edge.push_back(e);
+
+	g = generatorGraph(1000, 0.8);
+	Kruskal test;
+	test.kruskalMST(g);
+	test.kruskalMSTv2(g);
+
+	
+	
+	return 0;
 }
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.

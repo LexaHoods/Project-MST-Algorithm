@@ -151,7 +151,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Edge.cpp" />
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Graph.cpp" />
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Subset.cpp" />
+    <ClCompile Include="Kruskal.cpp" />
     <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Project-MST-Algorithm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Edge.h" />
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Graph.h" />
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Subset.h" />
+    <ClInclude Include="Kruskal.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
