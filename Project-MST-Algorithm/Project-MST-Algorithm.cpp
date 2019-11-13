@@ -1,6 +1,6 @@
 //Project Minimum Spanning Tree
 //Axel Houdayer - IATIC4
-#include <iostream> 
+#include <iostream>
 #include "Edge.h"
 #include "Graph.h"
 #include "Kruskal.h"
@@ -49,7 +49,7 @@ int main()
 
 	//Edge e;
 
-	// //add edge P-NP 
+	// //add edge P-NP
 
 	//e.src = 0;
 	//e.dest = 1;
@@ -93,14 +93,14 @@ int main()
 	//g.listEdge.push_back(e);
 
 
-	g = generatorGraph(100, 0.2);
+	g = generatorGraph(15000, 0.8);
 	Kruskal test;
 	Boruvska test2;
 	//test.print(g);
 	test.kruskalMST(g);
 	test.kruskalMSTv2(g);
 	test2.Boruvska2(g);
+	test2.Boruvska1(g);
 
 	return 0;
 }
-
