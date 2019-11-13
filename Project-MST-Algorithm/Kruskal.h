@@ -1,5 +1,7 @@
 #pragma once
 #include "Graph.h"
+#include "UnionFind.h"
+
 
 class Kruskal
 {

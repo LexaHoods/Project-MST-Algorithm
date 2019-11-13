@@ -30,6 +30,12 @@
     <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Subset.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\UnionFind.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Boruvska.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Graph.h">
@@ -42,6 +48,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Subset.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\UnionFind.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\O%27fiveteen\source\repos\Project-MST-Algorithm\Project-MST-Algorithm\Boruvska.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

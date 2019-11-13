@@ -4,8 +4,10 @@
 #include "Edge.h"
 #include "Graph.h"
 #include "Kruskal.h"
+#include "UnionFind.h"
 #include <random>
 #include <time.h>
+#include "Boruvska.h"
 
 
 using namespace std;
@@ -28,6 +30,7 @@ Graph generatorGraph(int v, float p) {
 
 	g.E = g.listEdge.size();
 	g.V = v;
+	cout << "nbr E : " << g.E << endl;
 	////print :
 	//for (unsigned int j = 0; j < g.listEdge.size(); j++) {
 	//	cout << g.listEdge[j].src << " -- " << g.listEdge[j].dest << "==" << g.listEdge[j].weight << endl;
@@ -39,51 +42,65 @@ Graph generatorGraph(int v, float p) {
 int main()
 {
 	//
-	//int V = 4, E = 5;
+	//int V = 5, E = 7;
 	Graph g;
 	//g.V = V;
 	//g.E = E;
 
 	//Edge e;
 
-	//// add edge 0-1 
+	// //add edge P-NP 
 
 	//e.src = 0;
 	//e.dest = 1;
-	//e.weight = 10;
-	//g.Edge.push_back(e);
+	//e.weight = 18;
+	//g.listEdge.push_back(e);
 
-
-	//// add edge 0-2 
-
-	//e.src = 0;
-	//e.dest = 2;
-	//e.weight = 6;
-	//g.Edge.push_back(e);
-
-	////add edge 0-3 
-	//e.src = 0;
-	//e.dest = 3;
-	//e.weight = 5;
-	//g.Edge.push_back(e);
-	////add edge 1-3 
+	////add edge NP-M
 	//e.src = 1;
-	//e.dest = 3;
-	//e.weight = 15;
-	//g.Edge.push_back(e);
-	////add edge 2-3 
+	//e.dest = 2;
+	//e.weight = 442;
+	//g.listEdge.push_back(e);
+
+	////add edge M-C
 	//e.src = 2;
 	//e.dest = 3;
-	//e.weight = 4;
-	//g.Edge.push_back(e);
+	//e.weight = 490;
+	//g.listEdge.push_back(e);
+	//
+	////add edge C-V
+	//e.src = 3;
+	//e.dest = 4;
+	//e.weight = 80;
+	//g.listEdge.push_back(e);
 
-	g = generatorGraph(1000, 0.8);
+	////add edge V-P
+	//e.src = 4;
+	//e.dest = 0;
+	//e.weight = 21;
+	//g.listEdge.push_back(e);
+
+	////add edge P-C
+	//e.src = 0;
+	//e.dest = 3;
+	//e.weight = 91;
+	//g.listEdge.push_back(e);
+
+	////add edge P-M
+	//e.src = 0;
+	//e.dest = 2;
+	//e.weight = 450;
+	//g.listEdge.push_back(e);
+
+
+	g = generatorGraph(15, 0.8);
 	Kruskal test;
+	Boruvska test2;
+	test.print(g);
 	test.kruskalMST(g);
 	test.kruskalMSTv2(g);
+	test2.Boruvska2(g);
 
-	
-	
 	return 0;
 }
 
