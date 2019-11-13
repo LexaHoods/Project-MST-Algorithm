@@ -93,10 +93,10 @@ int main()
 	//g.listEdge.push_back(e);
 
 
-	g = generatorGraph(15, 0.8);
+	g = generatorGraph(100, 0.2);
 	Kruskal test;
 	Boruvska test2;
-	test.print(g);
+	//test.print(g);
 	test.kruskalMST(g);
 	test.kruskalMSTv2(g);
 	test2.Boruvska2(g);
