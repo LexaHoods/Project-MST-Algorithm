@@ -1,35 +1,43 @@
-//Project Minimum Spanning Tree
+//Project Arbre Couvrant Minimal / Minimum Spanning Tree
 //Axel Houdayer - IATIC4
-#include <iostream>
+
 #include "Edge.h"
 #include "Graph.h"
-#include "Kruskal.h"
 #include "UnionFind.h"
+#include "Kruskal.h"
+#include "Boruvka.h"
+#include "Prim.h"
+#include <iostream>
 #include <random>
 #include <time.h>
-#include "Boruvska.h"
-
 
 using namespace std;
 Graph generatorGraph(int v, float p) {
 	Graph g;
+	g.V=v;
+	//initializes the matrix with 0
+	g.matrix.resize(v, std::vector<int>(v, 0));
 	float r = 0; // random
 	srand(time(NULL));
 	for (int i = 0; i < v; i++) {
 		for (int j = i + 1; j < v; j++) {
 			r = (float)rand() / RAND_MAX;
-			if (r >=p) {
+			if (r >= p) {
+				//List edge representation
 				Edge e;
+				int weight = (int)rand() % v + 1;
 				e.src = i;
 				e.dest = j;
-				e.weight = (int)rand() % v + 1;
+				e.weight = weight;
 				g.listEdge.push_back(e);
+				//Adjacency matrix representation
+				g.matrix[i][j]=weight;
+				g.matrix[j][i]=weight;
 			}
 		}
 	}
 
 	g.E = g.listEdge.size();
-	g.V = v;
 	cout << "nbr E : " << g.E << endl;
 	////print :
 	//for (unsigned int j = 0; j < g.listEdge.size(); j++) {
@@ -39,68 +47,31 @@ Graph generatorGraph(int v, float p) {
 	return g;
 
 }
+//Debug matrix :
+// void print(Graph g) {
+// 	for(int i=0; i<g.matrix.size();i++){
+// 		for(int j=0;j<g.matrix[i].size();j++){
+// 			printf(" %d\t",g.matrix[i][j]);
+// 		}
+// 		printf("\n");
+// 	}
+// }
 int main()
 {
-	//
-	//int V = 5, E = 7;
+
 	Graph g;
-	//g.V = V;
-	//g.E = E;
 
-	//Edge e;
-
-	// //add edge P-NP
-
-	//e.src = 0;
-	//e.dest = 1;
-	//e.weight = 18;
-	//g.listEdge.push_back(e);
-
-	////add edge NP-M
-	//e.src = 1;
-	//e.dest = 2;
-	//e.weight = 442;
-	//g.listEdge.push_back(e);
-
-	////add edge M-C
-	//e.src = 2;
-	//e.dest = 3;
-	//e.weight = 490;
-	//g.listEdge.push_back(e);
-	//
-	////add edge C-V
-	//e.src = 3;
-	//e.dest = 4;
-	//e.weight = 80;
-	//g.listEdge.push_back(e);
-
-	////add edge V-P
-	//e.src = 4;
-	//e.dest = 0;
-	//e.weight = 21;
-	//g.listEdge.push_back(e);
-
-	////add edge P-C
-	//e.src = 0;
-	//e.dest = 3;
-	//e.weight = 91;
-	//g.listEdge.push_back(e);
-
-	////add edge P-M
-	//e.src = 0;
-	//e.dest = 2;
-	//e.weight = 450;
-	//g.listEdge.push_back(e);
-
-
-	g = generatorGraph(15000, 0.8);
+	g = generatorGraph(9000, 0.2);
 	Kruskal test;
-	Boruvska test2;
-	//test.print(g);
+	Boruvka test2;
+	Prim test3;
+	//print(g);
+	test3.prim1(g);
 	test.kruskalMST(g);
 	test.kruskalMSTv2(g);
-	test2.Boruvska2(g);
-	test2.Boruvska1(g);
+	test2.Boruvka2(g);
+	test2.Boruvka1(g);
+
 
 	return 0;
 }

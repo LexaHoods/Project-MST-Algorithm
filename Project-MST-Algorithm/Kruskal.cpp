@@ -10,7 +10,7 @@
 #include <ctime>
 #include <chrono>
 #include "UnionFind.h"
-//comparaison function for qsort
+//fonction de comparaison pour qsort
 int comp(const void* a, const void* b) {
 	Edge* e1 = (Edge*)a;
 	Edge* e2 = (Edge*)b;
@@ -28,15 +28,15 @@ void Kruskal::kruskalMST(Graph g) {
 	int e = 0;
 	int i = 0;
 	int MSTweight = 0;
-	//Step 1 : Sort all the edges, order of their weight :
+	//1ère étape : trier les arêtes
 	qsort(&g.listEdge[0], g.E, sizeof(g.listEdge[0]),comp);
 
-	// Allocate memory for creating V subsets
+
 	int* arr = new int[g.V * sizeof(int)];
 
-	// Initialize all subsets as single element sets
+	// Initialisation de tous les sous ensembles
 	memset(arr, -1, sizeof(int) * g.V);
-	//Step 2 :
+	//Etape 2 :
 	while (e < (g.V) - 1 && i < g.E) {
 		Edge next_e = g.listEdge[i++];
 		int x = uf.find(arr, next_e.src);
@@ -57,7 +57,7 @@ void Kruskal::kruskalMST(Graph g) {
 	//Print
 
 	std::cout << "finished computation at " << std::ctime(&end_time)
-		<< "elapsed time: " << elapsed_seconds.count() << " s\n"
+		<< "Kruskalv1 elapsed time: " << elapsed_seconds.count() << " s\n"
 		<< " Weight MST : "<<MSTweight<<endl;
 
 	/*cout << "Print result Kruskal v1 : " << endl;
@@ -76,17 +76,17 @@ void Kruskal::kruskalMSTv2(Graph g) {
 	Graph result;
 	int e = 0;
 	int i = 0;
-	//Step 1 : Sort all the edges, order of their weight :
+
 	qsort(&g.listEdge[0], g.E, sizeof(g.listEdge[0]), comp);
 
-	// Allocate memory for creating V ssubsets
+
 	Subset* sub = new Subset[g.V * sizeof(Subset)];
-	// Create V subsets :
+	// Creation de V sous ensembles
 	for (int v = 0; v < g.V; ++v) {
 		sub[v].parent = v;
 		sub[v].rank = 0;
 		}
-	//Step 2 :
+	//Etape 2 :
 	while (e < (g.V) - 1 && i < g.E) {
 		Edge next_e = g.listEdge[i++];
 		int x = uf.find2(sub, next_e.src);
@@ -101,21 +101,12 @@ void Kruskal::kruskalMSTv2(Graph g) {
 	std::chrono::duration<double> elapsed_seconds = end - start;
 	time_t end_time = std::chrono::system_clock::to_time_t(end);
 	//Print
-	cout <<"Version 2 :"<< "finished computation at " << std::ctime(&end_time)
+	cout <<"Kruskal Version 2 :"<< "finished computation at " << std::ctime(&end_time)
 		<< "elapsed time: " << elapsed_seconds.count() << " s\n";
 	/*cout << "Print result Kruskal v2 : " << endl;
 	for (unsigned int j = 0; j < result.listEdge.size(); j++) {
 		cout << result.listEdge[j].src << " -- " << result.listEdge[j].dest << "==" << result.listEdge[j].weight << endl;
 	}*/
 	delete[]sub;
-	return;
-}
-//Debug function :
-void Kruskal::print(Graph g)
-{
-	for (unsigned int i = 0; i < g.listEdge.size(); i++) {
-
-		cout << g.listEdge[i].src << " -- " << g.listEdge[i].dest << "==" << g.listEdge[i].weight << endl;
-	}
 	return;
 }

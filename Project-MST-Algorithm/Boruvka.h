@@ -9,10 +9,9 @@
 #include <ctime>
 #include <chrono>
 #include "UnionFind.h"
-class Boruvska
+class Boruvka
 {
 public:
-	void Boruvska1(Graph g);
-	void Boruvska2(Graph g);
+	void Boruvka1(Graph g);
+	void Boruvka2(Graph g);
 };
-
